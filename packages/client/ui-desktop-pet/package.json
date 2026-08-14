@@ -1,13 +1,13 @@
 {
   "name": "@deepseek-ai/dsh-client-ui-desktop-pet",
-  "description": "Cute draggable desktop pet overlay for the DeepSeek Harness Web UI",
+  "description": "Codex-style draggable desktop pets for the DeepSeek Harness Web UI / 类似 Codex 的 DeepSeek Harness Web UI 可拖拽桌宠",
   "version": "0.1.0-rc.5",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pineapple880066/dsh-desktop-pets.git",
+    "url": "git+https://github.com/pineapple880066/dsh-webUI-pets.git",
     "directory": "packages/client/ui-desktop-pet"
   },
   "type": "module",
