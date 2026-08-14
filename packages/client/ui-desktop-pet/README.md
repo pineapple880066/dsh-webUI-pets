@@ -14,6 +14,12 @@ A small Codex-style companion for the DeepSeek Harness Web UI. The plugin regist
 - The − button minimizes the pet into a small corner companion.
 - The PNG asset is served by the client-module route at /plugins/<package>/assets/.
 
+## Pet artwork specification
+
+Use a transparent RGBA PNG sprite sheet sized 1448 × 1086 pixels for a new pet. It must contain a 4 × 3 grid of 362 × 362 pixel frames in the documented pose order. Use a lowercase kebab-case filename ending in -sprite.png and keep each pose inside its own cell.
+
+See the complete bilingual guide at [docs/pet-artwork-spec.md](../../../docs/pet-artwork-spec.md).
+
 The four character sprites were generated from user-provided reference images. Confirm derivative-work and redistribution rights before publishing them publicly.
 
 Mount @deepseek-ai/dsh-client-ui-desktop-pet in a Web composition after building its client bundle. The shipped Web bundle enables it by default.
@@ -47,6 +53,12 @@ None; this package neither assembles nor sends a provider request.
 - 拖动桌宠即可移动位置，并保存到 localStorage。
 - − 按钮可以把桌宠缩小成角落里的小伙伴。
 - PNG 素材通过 /plugins/<package>/assets/ 客户端插件路由提供。
+
+## 桌宠图片制作规范
+
+新增桌宠使用透明背景的 RGBA PNG 组图，尺寸为 1448 × 1086 像素，包含按规范顺序排列的 4 × 3 帧，每帧 362 × 362 像素。文件名使用小写 kebab-case，并以 -sprite.png 结尾；每个姿势都要放在自己的单元格内。
+
+完整的中英文制作说明见 [docs/pet-artwork-spec.md](../../../docs/pet-artwork-spec.md)。
 
 素材由用户提供的角色参考图生成，发布到公共仓库前请确认相应的二创和分发授权。
 

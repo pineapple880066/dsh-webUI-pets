@@ -14,6 +14,12 @@
 - − 按钮可以把桌宠缩小成角落里的小伙伴。
 - PNG 素材通过 /plugins/<package>/assets/ 客户端插件路由提供。
 
+## 桌宠图片制作规范
+
+新增桌宠使用透明背景的 RGBA PNG 组图，尺寸为 1448 × 1086 像素，包含按规范顺序排列的 4 × 3 帧，每帧 362 × 362 像素。文件名使用小写 kebab-case，并以 -sprite.png 结尾；每个姿势都要放在自己的单元格内。
+
+完整说明见 [docs/pet-artwork-spec.md](../../../docs/pet-artwork-spec.md)。
+
 素材由用户提供的角色参考图生成，发布到公共仓库前请确认相应的二创和分发授权。
 
 构建客户端 bundle 后，把 @deepseek-ai/dsh-client-ui-desktop-pet 挂载到 Web 组合中即可；当前 dsh Web bundle 默认已启用它。

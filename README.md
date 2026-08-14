@@ -16,6 +16,12 @@ DSH WebUI Pets is a collection of Codex-like draggable desktop companions for th
 
 The plugin lives at [packages/client/ui-desktop-pet](packages/client/ui-desktop-pet). It registers into the shell.overlay slot and provides draggable, minimizable pets with 12-frame sprite sheets. Use the ↻ control to cycle pets; the selection and position are persisted in browser local storage.
 
+## Pet artwork specification
+
+New pets should use a transparent RGBA PNG sprite sheet sized 1448 × 1086 pixels. The sheet is a 4 × 3 grid of 362 × 362 pixel frames, numbered left to right and top to bottom. Use a lowercase kebab-case filename ending in -sprite.png, keep all poses inside their own cells, and keep the character scale and feet baseline consistent.
+
+The complete English and Chinese preparation guide, frame order, naming rules, runtime mapping, and integration checklist are in [docs/pet-artwork-spec.md](docs/pet-artwork-spec.md).
+
 ## Install into dsh
 
 Copy packages/client/ui-desktop-pet into a dsh checkout, add its workspace reference to the client TypeScript solution, add the package to the Web bundle dependencies, and register its dsh.client row in the Web composition patch. The package README documents the runtime behavior and current limitations.
@@ -39,6 +45,12 @@ DSH WebUI Pets 是一组面向 DeepSeek Harness Web UI 的、类似 Codex 的可
 ## 接入 dsh
 
 将 packages/client/ui-desktop-pet 复制到 dsh 源码仓库，加入客户端 TypeScript solution、Web bundle 依赖以及 Web composition patch 中的 dsh.client 注册，即可接入。运行行为和当前限制详见插件目录中的 README。
+
+## 桌宠图片制作规范
+
+新增桌宠请使用透明背景的 RGBA PNG 组图，尺寸为 1448 × 1086 像素，按 4 列 × 3 行排列，每帧 362 × 362 像素。文件名使用小写 kebab-case，并以 -sprite.png 结尾；每个姿势必须留在自己的单元格内，角色比例和脚部基线要保持一致。
+
+完整的中英文图片制作说明、帧顺序、命名规则、运行时映射和接入检查清单见 [docs/pet-artwork-spec.md](docs/pet-artwork-spec.md)。
 
 ## 素材与许可证
 
