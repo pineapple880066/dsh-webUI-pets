@@ -50,9 +50,17 @@ DSH WebUI Pets 是一组面向 DeepSeek Harness Web UI 的、类似 Codex 的可
 
 插件位于 [packages/client/ui-desktop-pet](packages/client/ui-desktop-pet)，注册到 shell.overlay 槽位，支持拖拽、缩小和 12 帧组图动画。点击 ↻ 可以循环切换桌宠，选择和位置会保存到浏览器本地存储。
 
-## 接入 dsh
+## 安装与启用
 
-将 packages/client/ui-desktop-pet 复制到 dsh 源码仓库，加入客户端 TypeScript solution、Web bundle 依赖以及 Web composition patch 中的 dsh.client 注册，即可接入。运行行为和当前限制详见插件目录中的 README。
+现在按 DSH 的插件流程安装，不需要再把源码复制进 dsh，也不需要重新构建整个 dsh：
+
+```bash
+dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/client/ui-desktop-pet
+```
+
+安装后打开 `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`，在 `桌宠 / Desktop pets` 卡片中切换 `启用桌宠 / Enable desktop pets`。开关会写入 DSH 设置并热生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
+
+包内已经声明 `dsh.client` 和 `dsh.bundle.patch`：patch 负责把插件加入 Web profile，设置卡片负责控制桌宠是否显示。
 
 ## 桌宠图片制作规范
 
