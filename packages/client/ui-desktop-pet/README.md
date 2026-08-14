@@ -1,6 +1,6 @@
 # @deepseek-ai/dsh-client-ui-desktop-pet
 
-English | 中文翻译见本文末尾 | [Standalone repository / 独立仓库主页](../../README.md)
+English | 中文翻译见本文末尾 | [Standalone repository / 独立仓库主页](../../../README.md)
 
 A small Codex-style companion for the DeepSeek Harness Web UI. The plugin registers into the additive shell.overlay slot, so it floats above the three-column shell without replacing any existing surface.
 
