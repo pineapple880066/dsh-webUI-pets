@@ -1,0 +1,130 @@
+.root {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  z-index: 1;
+  width: 126px;
+  padding: 8px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: transform var(--ds-transition-duration-fast) var(--ds-ease-out);
+}
+
+.root:hover,
+.root:focus-within {
+  transform: translateY(-3px);
+}
+
+.root[data-dragging] {
+  cursor: grabbing;
+  transform: scale(1.03);
+  transition: none;
+}
+
+.root[data-minimized] {
+  width: 48px;
+  padding: 2px;
+}
+
+.sprite {
+  width: 110px;
+  height: 110px;
+  background-image: var(--dsh-desktop-pet-sprite);
+  background-repeat: no-repeat;
+  background-size: 400% 300%;
+  filter: drop-shadow(0 8px 10px rgb(15 23 42 / 18%));
+}
+
+.root[data-minimized] .sprite {
+  width: 44px;
+  height: 44px;
+}
+
+.actionButton {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  z-index: 2;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 999px;
+  background: var(--dsw-alias-bg-elevated);
+  color: var(--dsw-alias-text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--ds-transition-duration-fast) var(--ds-ease-out);
+}
+
+.switcher {
+  right: 25px;
+}
+
+.root:hover .actionButton,
+.root:focus-within .actionButton,
+.root[data-minimized] .actionButton {
+  opacity: 1;
+}
+
+.actionButton:hover {
+  background: var(--dsw-alias-button-floating-hover);
+  color: var(--dsw-alias-text-primary);
+}
+
+.bubble {
+  position: absolute;
+  right: 2px;
+  bottom: calc(100% - 4px);
+  display: grid;
+  gap: 3px;
+  min-width: 150px;
+  padding: 9px 11px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 12px;
+  background: var(--dsw-alias-bg-elevated);
+  box-shadow: 0 8px 26px rgb(15 23 42 / 13%);
+  color: var(--dsw-alias-text-primary);
+  font-size: 12px;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition:
+    opacity var(--ds-transition-duration-fast) var(--ds-ease-out),
+    transform var(--ds-transition-duration-fast) var(--ds-ease-out);
+}
+
+.root:hover .bubble,
+.root:focus-within .bubble {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bubble::after {
+  position: absolute;
+  right: 23px;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid var(--dsw-alias-border-l2);
+  border-bottom: 1px solid var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-bg-elevated);
+  content: '';
+  transform: rotate(45deg);
+}
+
+.bubble span {
+  color: var(--dsw-alias-text-tertiary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .actionButton,
+  .bubble {
+    transition: none;
+  }
+}
