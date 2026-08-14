@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-desktop-pet
+# @dsh-external/dsh-webui-pets
 
 English | 中文翻译见本文末尾 | [Standalone repository / 独立仓库主页](../../../README.md)
 
@@ -13,6 +13,7 @@ A small Codex-style companion for the DeepSeek Harness Web UI. The plugin regist
 - Drag anywhere on the pet to reposition it; the position is persisted in localStorage.
 - The − button minimizes the pet into a small corner companion.
 - The PNG asset is served by the client-module route at /plugins/<package>/assets/.
+- `Settings → Plugins → Plugin configuration` contains an `Enable desktop pets` switch; changing it persists through the DSH settings service and hot-updates the overlay.
 
 ## Pet artwork specification
 
@@ -22,7 +23,7 @@ See the complete bilingual guide at [docs/pet-artwork-spec.md](../../../docs/pet
 
 The four character sprites were generated from user-provided reference images. Confirm derivative-work and redistribution rights before publishing them publicly.
 
-Mount @deepseek-ai/dsh-client-ui-desktop-pet in a Web composition after building its client bundle. The shipped Web bundle enables it by default.
+Install it into the Web profile with `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet`. The package declares its own `dsh.bundle.patch` and `dsh.client` entry. Then use `Settings → Plugins → Plugin configuration` to enable or disable the pets. No source copy or full dsh rebuild is required.
 
 ## Model Experience
 
@@ -62,7 +63,7 @@ None; this package neither assembles nor sends a provider request.
 
 素材由用户提供的角色参考图生成，发布到公共仓库前请确认相应的二创和分发授权。
 
-构建客户端 bundle 后，把 @deepseek-ai/dsh-client-ui-desktop-pet 挂载到 Web 组合中即可；当前 dsh Web bundle 默认已启用它。
+使用 `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet` 安装即可。包内已经声明自己的 `dsh.bundle.patch` 和 `dsh.client` 入口；然后在 `设置 → 插件 → 插件配置` 中启用或关闭桌宠。不需要复制源码，也不需要重新构建整个 dsh。
 
 ## 模型体验
 

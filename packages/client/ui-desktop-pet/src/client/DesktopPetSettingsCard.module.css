@@ -1,0 +1,81 @@
+.card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 12px;
+  background: var(--dsw-alias-bg-elevated);
+  color: var(--dsw-alias-text-primary);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header strong {
+  display: block;
+  font-size: 14px;
+}
+
+.header p {
+  margin: 5px 0 0;
+  color: var(--dsw-alias-text-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.pending {
+  color: var(--dsw-alias-text-secondary);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+}
+
+.toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--dsw-alias-button-primary-bg);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 6px 10px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 7px;
+  background: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-text-primary);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.actions button:last-child {
+  border-color: var(--dsw-alias-button-primary-bg);
+  background: var(--dsw-alias-button-primary-bg);
+  color: var(--dsw-alias-button-primary-text);
+}
+
+.actions button:disabled,
+.toggle input:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.failed {
+  margin: 0;
+  color: var(--dsw-alias-text-danger);
+  font-size: 12px;
+}

@@ -1,6 +1,6 @@
 import { clientBundle } from '../tsdown.client.ts'
 
 export default clientBundle(
-  '@deepseek-ai/dsh-client-ui-desktop-pet',
+  '@dsh-external/dsh-webui-pets',
   ['lib/types/index.js', 'lib/types/invariant.js'],
 )

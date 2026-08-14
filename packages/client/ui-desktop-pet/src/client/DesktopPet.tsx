@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react'
-import type { PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
+import type { InjectFace, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
 import css from './DesktopPet.module.css'
+import type { DesktopPetSettingsFace } from './settings-controller.ts'
 
 type PetMode = 'idle' | 'working' | 'attention' | 'done'
 type PetId = 'doki' | 'crimson-hat' | 'blue-ribbon' | 'blue-mermaid'
@@ -13,6 +14,7 @@ type PetDefinition = {
 }
 
 type DesktopPetProps = PropsRuntime<'shell.overlay'>
+type DesktopPetOverlayProps = PropsRuntime<'shell.overlay'> & InjectFace<DesktopPetSettingsFace>
 
 const POSITION_KEY = 'dsh.desktop-pet.position'
 const PET_KEY = 'dsh.desktop-pet.pet'
@@ -23,7 +25,7 @@ const FRAMES: Record<PetMode, readonly number[]> = {
   attention: [6],
   done: [9],
 }
-const DSH_PLUGIN_ASSETS = '/plugins/@deepseek-ai/dsh-client-ui-desktop-pet/assets'
+const DSH_PLUGIN_ASSETS = '/plugins/@dsh-external/dsh-webui-pets/assets'
 const DEFAULT_PET: PetDefinition = {
   id: 'doki',
   spriteUrl: `${DSH_PLUGIN_ASSETS}/doki-sprite.png`,
@@ -257,4 +259,10 @@ export function DesktopPet({ useSessions }: DesktopPetProps) {
       )}
     </div>
   )
+}
+
+/** Overlay wrapper that reacts to Settings → Plugins → Plugin configuration. */
+export function DesktopPetOverlay(props: DesktopPetOverlayProps) {
+  const enabled = props.useDesktopPetSettings(snapshot => snapshot.enabled)
+  return enabled ? <DesktopPet {...props} /> : null
 }

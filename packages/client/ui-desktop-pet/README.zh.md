@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-desktop-pet
+# @dsh-external/dsh-webui-pets
 
 [English README / 英文 README](README.md)
 
@@ -13,6 +13,7 @@
 - 拖动桌宠即可移动位置，并保存到 localStorage。
 - − 按钮可以把桌宠缩小成角落里的小伙伴。
 - PNG 素材通过 /plugins/<package>/assets/ 客户端插件路由提供。
+- `设置 → 插件 → 插件配置` 中有 `启用桌宠` 开关；修改会通过 DSH 设置服务持久化，并热更新桌宠悬浮层。
 
 ## 桌宠图片制作规范
 
@@ -22,7 +23,7 @@
 
 素材由用户提供的角色参考图生成，发布到公共仓库前请确认相应的二创和分发授权。
 
-构建客户端 bundle 后，把 @deepseek-ai/dsh-client-ui-desktop-pet 挂载到 Web 组合中即可；当前 dsh Web bundle 默认已启用它。
+使用 `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet` 安装。包内已经声明自己的 `dsh.bundle.patch` 和 `dsh.client` 入口；然后在 `设置 → 插件 → 插件配置` 中启用或关闭桌宠。不需要复制源码，也不需要重新构建整个 dsh。
 
 ## 模型体验
 

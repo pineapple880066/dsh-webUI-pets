@@ -22,9 +22,17 @@ New pets should use a transparent RGBA PNG sprite sheet sized 1448 × 1086 pixel
 
 The complete English and Chinese preparation guide, frame order, naming rules, runtime mapping, and integration checklist are in [docs/pet-artwork-spec.md](docs/pet-artwork-spec.md).
 
-## Install into dsh
+## Install and enable / 安装与启用
 
-Copy packages/client/ui-desktop-pet into a dsh checkout, add its workspace reference to the client TypeScript solution, add the package to the Web bundle dependencies, and register its dsh.client row in the Web composition patch. The package README documents the runtime behavior and current limitations.
+Install the package into the Web profile with the current DSH plugin flow; it is no longer necessary to copy source files into dsh or rebuild the whole dsh checkout:
+
+```bash
+dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/client/ui-desktop-pet
+```
+
+After installation, open `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`, then use `桌宠 / Desktop pets → 启用桌宠 / Enable desktop pets`. The switch is persisted by DSH settings and takes effect without rebuilding dsh. A restart of the Web profile may still be needed after the first installation so the newly installed client bundle is loaded.
+
+The package declares `dsh.client` and `dsh.bundle.patch`; the patch adds it to the Web profile composition, while the settings card controls whether the overlay is mounted.
 
 ## Assets and license
 

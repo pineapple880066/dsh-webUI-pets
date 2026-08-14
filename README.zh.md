@@ -14,9 +14,17 @@
 
 完整说明见 [docs/pet-artwork-spec.md](docs/pet-artwork-spec.md)。
 
-## 接入 dsh
+## 安装与启用
 
-将 packages/client/ui-desktop-pet 复制到 dsh 源码仓库，加入客户端 TypeScript solution、Web bundle 依赖以及 Web composition patch 中的 dsh.client 注册，即可接入。
+现在按 DSH 的插件流程安装，不需要再把源码复制进 dsh，也不需要重新构建整个 dsh：
+
+```bash
+dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/client/ui-desktop-pet
+```
+
+安装后打开 `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`，在 `桌宠 / Desktop pets` 卡片中切换 `启用桌宠 / Enable desktop pets`。开关会写入 DSH 设置并热生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
+
+包内已经声明 `dsh.client` 和 `dsh.bundle.patch`：patch 负责把插件加入 Web profile，设置卡片负责控制桌宠是否显示。
 
 ## 素材与许可证
 
