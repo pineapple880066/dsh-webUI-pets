@@ -7,6 +7,7 @@ export const inject = ['slots', 'connection', 'remote', 'settingsScope'];
 export function apply(ctx) {
     const scope = ctx.settingsScope.bind({ namespace: 'dsh-desktop-pet' });
     const controller = new DesktopPetSettingsController(scope);
+    ctx.effect(() => () => { controller.dispose(); }, 'dsh-desktop-pet: settings controller');
     ctx.slots.inject('shell.overlay', () => ctx.slots.register({
         name: 'shell.overlay',
         id: 'dsh-desktop-pet',

@@ -6,7 +6,7 @@ A small Codex-style companion for the DeepSeek Harness Web UI. The plugin regist
 
 ## Features
 
-- Four switchable pets are bundled: Doki, Crimson Flower, Blue Ribbon, and Deep Sea; each has its own 12-frame sprite sheet.
+- Seven switchable pets are bundled: Doki, Crimson Flower, Blue Ribbon, Deep Sea, Black Rose Maid, Frost Crown, and Mint Gamer; each has its own 12-frame sprite sheet.
 - Each sheet includes idle, blink, happy, working, thinking, sleeping, surprised, waving, celebrating, attention, tired, and bow poses.
 - Changes pose from the current session summary: working, waiting for confirmation, completed, or idle.
 - The ↻ button cycles pets and persists the selection in browser local storage.
@@ -21,7 +21,7 @@ Use a transparent RGBA PNG sprite sheet sized 1448 × 1086 pixels for a new pet.
 
 See the complete bilingual guide at [docs/pet-artwork-spec.md](../../../docs/pet-artwork-spec.md).
 
-The four character sprites were generated from user-provided reference images. Confirm derivative-work and redistribution rights before publishing them publicly.
+The seven character sprites were generated from user-provided reference images. Confirm derivative-work and redistribution rights before publishing them publicly.
 
 Install it into the Web profile with `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet`. The package declares its own `dsh.bundle.patch` and `dsh.client` entry. Then use `Settings → Plugins → Plugin configuration` to enable or disable the pets. No source copy or full dsh rebuild is required.
 
@@ -47,7 +47,7 @@ None; this package neither assembles nor sends a provider request.
 
 ## 功能
 
-- 内置四个可切换的桌宠：Doki、赤花小友、蓝缎小友和深海小友；每个角色都有一张 12 帧组图。
+- 内置七个可切换的桌宠：Doki、赤花小友、蓝缎小友、深海小友、黑蔷薇女仆、霜冠小友和薄荷电玩小友；每个角色都有一张 12 帧组图。
 - 每张组图包含待机、眨眼、开心、工作、思考、睡觉、惊讶、挥手、庆祝、注意、疲惫和鞠躬姿势。
 - 根据当前会话的运行、等待确认、完成和空闲状态切换姿势。
 - 点击 ↻ 可以更换桌宠，选择会保存到浏览器本地存储。

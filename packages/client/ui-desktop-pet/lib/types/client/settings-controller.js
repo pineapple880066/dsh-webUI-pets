@@ -6,10 +6,14 @@ export class DesktopPetSettingsController {
     saving = false;
     failed = false;
     store;
+    unsubscribe;
     constructor(scope) {
         this.scope = scope;
         this.store = createSnapshotStore(this.snapshot());
-        scope.subscribe(() => { this.publish(); });
+        this.unsubscribe = scope.subscribe(() => { this.publish(); });
+    }
+    dispose() {
+        this.unsubscribe();
     }
     snapshot() {
         const snapshot = this.scope.getSnapshot();

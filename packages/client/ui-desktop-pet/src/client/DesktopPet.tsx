@@ -5,7 +5,14 @@ import css from './DesktopPet.module.css'
 import type { DesktopPetSettingsFace } from './settings-controller.ts'
 
 type PetMode = 'idle' | 'working' | 'attention' | 'done'
-type PetId = 'doki' | 'crimson-hat' | 'blue-ribbon' | 'blue-mermaid'
+type PetId =
+  | 'doki'
+  | 'crimson-hat'
+  | 'blue-ribbon'
+  | 'blue-mermaid'
+  | 'black-maid'
+  | 'frost-crown'
+  | 'mint-gamer'
 type Position = { left: number; top: number }
 type PetDefinition = {
   id: PetId
@@ -66,6 +73,36 @@ const PETS: readonly PetDefinition[] = [
       working: '深海小友 正在努力工作',
       attention: '深海小友 在等你确认',
       done: '深海小友 说：完成啦！',
+    },
+  },
+  {
+    id: 'black-maid',
+    spriteUrl: `${DSH_PLUGIN_ASSETS}/black-maid-sprite.png`,
+    labels: {
+      idle: '黑蔷薇女仆 随时待命',
+      working: '黑蔷薇女仆 正在努力工作',
+      attention: '黑蔷薇女仆 在等你确认',
+      done: '黑蔷薇女仆 说：完成啦！',
+    },
+  },
+  {
+    id: 'frost-crown',
+    spriteUrl: `${DSH_PLUGIN_ASSETS}/frost-crown-sprite.png`,
+    labels: {
+      idle: '霜冠小友 随时待命',
+      working: '霜冠小友 正在努力工作',
+      attention: '霜冠小友 在等你确认',
+      done: '霜冠小友 说：完成啦！',
+    },
+  },
+  {
+    id: 'mint-gamer',
+    spriteUrl: `${DSH_PLUGIN_ASSETS}/mint-gamer-sprite.png`,
+    labels: {
+      idle: '薄荷电玩小友 随时待命',
+      working: '薄荷电玩小友 正在努力工作',
+      attention: '薄荷电玩小友 在等你确认',
+      done: '薄荷电玩小友 说：完成啦！',
     },
   },
 ]

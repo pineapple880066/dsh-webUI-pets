@@ -26,7 +26,9 @@ export declare class DesktopPetSettingsController {
     private saving;
     private failed;
     private readonly store;
+    private readonly unsubscribe;
     constructor(scope: SettingsScope<DesktopPetSettings>);
+    dispose(): void;
     private snapshot;
     private publish;
     private saveSettings;

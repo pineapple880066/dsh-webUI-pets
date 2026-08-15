@@ -1,5 +1,5 @@
 //#region lib/types/invariant.js
-const PACKAGE_NAME = "@deepseek-ai/dsh-client-ui-desktop-pet";
+const PACKAGE_NAME = "@dsh-external/dsh-webui-pets";
 const name = "client-ui-desktop-pet-invariant";
 const inject = ["invariants"];
 const install = () => {};

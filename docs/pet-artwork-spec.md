@@ -52,6 +52,9 @@ Examples:
     crimson-hat-sprite.png
     blue-ribbon-sprite.png
     blue-mermaid-sprite.png
+    black-maid-sprite.png
+    frost-crown-sprite.png
+    mint-gamer-sprite.png
 
 Keep the character scale, feet baseline, and visual center consistent across all 12 cells. A transparent inner margin of about 24 pixels is recommended so hair, accessories, and effects do not touch the cell edge.
 
@@ -65,7 +68,7 @@ Keep the character scale, feet baseline, and visual center consistent across all
 
 The runtime URL is:
 
-    /plugins/@deepseek-ai/dsh-client-ui-desktop-pet/assets/<pet-id>-sprite.png
+    /plugins/@dsh-external/dsh-webui-pets/assets/<pet-id>-sprite.png
 
 ## Quality checklist
 
@@ -131,6 +134,9 @@ The runtime URL is:
     crimson-hat-sprite.png
     blue-ribbon-sprite.png
     blue-mermaid-sprite.png
+    black-maid-sprite.png
+    frost-crown-sprite.png
+    mint-gamer-sprite.png
 
 12 个单元格中的角色比例、脚部基线和视觉中心要保持一致。建议角色与单元格边缘保留约 24 像素的透明内边距，避免头发、配饰或特效贴到边缘。
 
@@ -144,7 +150,7 @@ The runtime URL is:
 
 运行时素材地址为：
 
-    /plugins/@deepseek-ai/dsh-client-ui-desktop-pet/assets/<pet-id>-sprite.png
+    /plugins/@dsh-external/dsh-webui-pets/assets/<pet-id>-sprite.png
 
 ## 质量检查清单
 

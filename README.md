@@ -8,11 +8,11 @@ English version / 英文版
 
 ## Overview
 
-DSH WebUI Pets is a collection of Codex-like draggable desktop companions for the DeepSeek Harness Web UI. It currently includes Doki, Crimson Flower, Blue Ribbon, and Deep Sea. The package is tagged [dsh-plugin](https://github.com/topics/dsh-plugin) and renders inside the Web UI instead of opening a native desktop window.
+DSH WebUI Pets is a collection of Codex-like draggable desktop companions for the DeepSeek Harness Web UI. It currently includes seven pets: Doki, Crimson Flower, Blue Ribbon, Deep Sea, Black Rose Maid, Frost Crown, and Mint Gamer. The package is tagged [dsh-plugin](https://github.com/topics/dsh-plugin) and renders inside the Web UI instead of opening a native desktop window.
 
 桌宠总览 / Desktop pets overview:
 
-![Four DSH WebUI pets](assets/pets-overview.png)
+![Seven DSH WebUI pets](assets/pets-overview.png)
 
 The plugin lives at [packages/client/ui-desktop-pet](packages/client/ui-desktop-pet). It registers into the shell.overlay slot and provides draggable, minimizable pets with 12-frame sprite sheets. Use the ↻ control to cycle pets; the selection and position are persisted in browser local storage.
 
@@ -36,17 +36,17 @@ The package declares `dsh.client` and `dsh.bundle.patch`; the patch adds it to t
 
 ## Assets and license
 
-The four transparent sprite sheets were generated from user-provided character references. Confirm derivative-work and redistribution rights before redistributing the character assets. The plugin source is MIT licensed.
+The seven transparent sprite sheets were generated from user-provided character references. Confirm derivative-work and redistribution rights before redistributing the character assets. The plugin source is MIT licensed.
 
 ---
 
 ## 中文翻译
 
-DSH WebUI Pets 是一组面向 DeepSeek Harness Web UI 的、类似 Codex 的可拖拽桌宠。目前包含 Doki、赤花小友、蓝缎小友和深海小友。仓库已加入 [dsh-plugin](https://github.com/topics/dsh-plugin) 话题，桌宠运行在 Web UI 内，不会打开原生桌面窗口。
+DSH WebUI Pets 是一组面向 DeepSeek Harness Web UI 的、类似 Codex 的可拖拽桌宠。目前包含七个桌宠：Doki、赤花小友、蓝缎小友、深海小友、黑蔷薇女仆、霜冠小友和薄荷电玩小友。仓库已加入 [dsh-plugin](https://github.com/topics/dsh-plugin) 话题，桌宠运行在 Web UI 内，不会打开原生桌面窗口。
 
-上方截图是桌宠在 Web UI 中的实际效果；下方总览图展示当前四个桌宠：
+上方截图是桌宠在 Web UI 中的实际效果；下方总览图展示当前七个桌宠：
 
-![四个 DSH WebUI 桌宠](assets/pets-overview.png)
+![七个 DSH WebUI 桌宠](assets/pets-overview.png)
 
 插件位于 [packages/client/ui-desktop-pet](packages/client/ui-desktop-pet)，注册到 shell.overlay 槽位，支持拖拽、缩小和 12 帧组图动画。点击 ↻ 可以循环切换桌宠，选择和位置会保存到浏览器本地存储。
 
@@ -70,4 +70,4 @@ dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/clie
 
 ## 素材与许可证
 
-四套透明组图根据用户提供的角色参考图生成。重新分发角色素材前，请确认相应的二创和分发授权；插件源代码采用 MIT 许可证。
+七套透明组图根据用户提供的角色参考图生成。重新分发角色素材前，请确认相应的二创和分发授权；插件源代码采用 MIT 许可证。

@@ -1,4 +1,4 @@
-const PACKAGE_NAME = '@deepseek-ai/dsh-client-ui-desktop-pet';
+const PACKAGE_NAME = '@dsh-external/dsh-webui-pets';
 export const name = 'client-ui-desktop-pet-invariant';
 export const inject = ['invariants'];
 // No runtime invariant: the pet owns only a slot registration and local UI state.

@@ -18,11 +18,11 @@ window.__ModuleLoader__.load({
 			document.head.appendChild(tag);
 		}
 		var DesktopPet_module_css_default = {
-			"actionButton": "Z7uDiG_actionButton",
 			"root": "Z7uDiG_root",
 			"sprite": "Z7uDiG_sprite",
-			"switcher": "Z7uDiG_switcher",
-			"bubble": "Z7uDiG_bubble"
+			"actionButton": "Z7uDiG_actionButton",
+			"bubble": "Z7uDiG_bubble",
+			"switcher": "Z7uDiG_switcher"
 		};
 		//#endregion
 		//#region src/client/DesktopPet.tsx
@@ -75,6 +75,36 @@ window.__ModuleLoader__.load({
 					working: "深海小友 正在努力工作",
 					attention: "深海小友 在等你确认",
 					done: "深海小友 说：完成啦！"
+				}
+			},
+			{
+				id: "black-maid",
+				spriteUrl: `${DSH_PLUGIN_ASSETS}/black-maid-sprite.png`,
+				labels: {
+					idle: "黑蔷薇女仆 随时待命",
+					working: "黑蔷薇女仆 正在努力工作",
+					attention: "黑蔷薇女仆 在等你确认",
+					done: "黑蔷薇女仆 说：完成啦！"
+				}
+			},
+			{
+				id: "frost-crown",
+				spriteUrl: `${DSH_PLUGIN_ASSETS}/frost-crown-sprite.png`,
+				labels: {
+					idle: "霜冠小友 随时待命",
+					working: "霜冠小友 正在努力工作",
+					attention: "霜冠小友 在等你确认",
+					done: "霜冠小友 说：完成啦！"
+				}
+			},
+			{
+				id: "mint-gamer",
+				spriteUrl: `${DSH_PLUGIN_ASSETS}/mint-gamer-sprite.png`,
+				labels: {
+					idle: "薄荷电玩小友 随时待命",
+					working: "薄荷电玩小友 正在努力工作",
+					attention: "薄荷电玩小友 在等你确认",
+					done: "薄荷电玩小友 说：完成啦！"
 				}
 			}
 		];
@@ -264,12 +294,12 @@ window.__ModuleLoader__.load({
 			document.head.appendChild(tag);
 		}
 		var DesktopPetSettingsCard_module_css_default = {
-			"header": "_6cK9Xq_header",
 			"pending": "_6cK9Xq_pending",
+			"toggle": "_6cK9Xq_toggle",
 			"actions": "_6cK9Xq_actions",
 			"failed": "_6cK9Xq_failed",
-			"card": "_6cK9Xq_card",
-			"toggle": "_6cK9Xq_toggle"
+			"header": "_6cK9Xq_header",
+			"card": "_6cK9Xq_card"
 		};
 		//#endregion
 		//#region src/client/DesktopPetSettingsCard.tsx
