@@ -18,11 +18,11 @@ window.__ModuleLoader__.load({
 			document.head.appendChild(tag);
 		}
 		var DesktopPet_module_css_default = {
-			"root": "Z7uDiG_root",
 			"sprite": "Z7uDiG_sprite",
-			"actionButton": "Z7uDiG_actionButton",
+			"switcher": "Z7uDiG_switcher",
 			"bubble": "Z7uDiG_bubble",
-			"switcher": "Z7uDiG_switcher"
+			"root": "Z7uDiG_root",
+			"actionButton": "Z7uDiG_actionButton"
 		};
 		//#endregion
 		//#region src/client/DesktopPet.tsx
@@ -294,12 +294,12 @@ window.__ModuleLoader__.load({
 			document.head.appendChild(tag);
 		}
 		var DesktopPetSettingsCard_module_css_default = {
-			"pending": "_6cK9Xq_pending",
-			"toggle": "_6cK9Xq_toggle",
 			"actions": "_6cK9Xq_actions",
+			"toggle": "_6cK9Xq_toggle",
 			"failed": "_6cK9Xq_failed",
-			"header": "_6cK9Xq_header",
-			"card": "_6cK9Xq_card"
+			"card": "_6cK9Xq_card",
+			"pending": "_6cK9Xq_pending",
+			"header": "_6cK9Xq_header"
 		};
 		//#endregion
 		//#region src/client/DesktopPetSettingsCard.tsx
@@ -442,8 +442,7 @@ window.__ModuleLoader__.load({
 			}, DesktopPetOverlay));
 			ctx.slots.inject("settings.plugin.item", () => ctx.slots.register({
 				name: "settings.plugin.item",
-				id: "dsh-desktop-pet",
-				order: 60,
+				key: "dsh-desktop-pet",
 				inject: () => controller.inject()
 			}, DesktopPetSettingsCard));
 		}

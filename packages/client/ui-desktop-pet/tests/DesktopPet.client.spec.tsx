@@ -37,7 +37,7 @@ describe('DesktopPet', () => {
     expect(screen.getByRole('button', { name: '展开桌宠' })).toBeTruthy()
   })
 
-  it('cycles through the three bundled pets', () => {
+  it('cycles through all seven bundled pets', () => {
     render(<DesktopPet useSessions={useSessions} useWorkspaces={useWorkspaces} />)
 
     const switcher = screen.getByRole('button', { name: '更换桌宠' })
@@ -47,5 +47,11 @@ describe('DesktopPet', () => {
     expect(screen.getByRole('img', { name: '蓝缎小友 随时待命' })).toBeTruthy()
     fireEvent.click(switcher)
     expect(screen.getByRole('img', { name: '深海小友 随时待命' })).toBeTruthy()
+    fireEvent.click(switcher)
+    expect(screen.getByRole('img', { name: '黑蔷薇女仆 随时待命' })).toBeTruthy()
+    fireEvent.click(switcher)
+    expect(screen.getByRole('img', { name: '霜冠小友 随时待命' })).toBeTruthy()
+    fireEvent.click(switcher)
+    expect(screen.getByRole('img', { name: '薄荷电玩小友 随时待命' })).toBeTruthy()
   })
 })

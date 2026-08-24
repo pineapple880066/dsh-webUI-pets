@@ -34,6 +34,8 @@ After installation, open `设置 / Settings → 插件 / Plugins → 插件配�
 
 The package declares `dsh.client` and `dsh.bundle.patch`; the patch adds it to the Web profile composition, while the settings card controls whether the overlay is mounted.
 
+Compatibility: `0.1.0-rc.6` targets DSH `0.1.1-rc.1` and newer. It registers the settings card through the keyed `settings.plugin.item` slot introduced by current DSH releases.
+
 ## Assets and license
 
 The seven transparent sprite sheets were generated from user-provided character references. Confirm derivative-work and redistribution rights before redistributing the character assets. The plugin source is MIT licensed.
@@ -61,6 +63,8 @@ dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/clie
 安装后打开 `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`，在 `桌宠 / Desktop pets` 卡片中切换 `启用桌宠 / Enable desktop pets`。开关会写入 DSH 设置并热生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
 
 包内已经声明 `dsh.client` 和 `dsh.bundle.patch`：patch 负责把插件加入 Web profile，设置卡片负责控制桌宠是否显示。
+
+兼容性：`0.1.0-rc.6` 面向 DSH `0.1.1-rc.1` 及更新版本，设置卡片使用当前 DSH 提供的 keyed `settings.plugin.item` 槽位注册。
 
 ## 桌宠图片制作规范
 

@@ -1,7 +1,7 @@
 import type { Context } from '@deepseek-ai/cordis'
 import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-client-ui-desktop-pet'
+const PACKAGE_NAME = '@dsh-external/dsh-webui-pets'
 
 export const name = 'client-ui-desktop-pet-invariant'
 export const inject = ['invariants']

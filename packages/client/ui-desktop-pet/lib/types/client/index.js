@@ -16,8 +16,7 @@ export function apply(ctx) {
     }, DesktopPetOverlay));
     ctx.slots.inject('settings.plugin.item', () => ctx.slots.register({
         name: 'settings.plugin.item',
-        id: 'dsh-desktop-pet',
-        order: 60,
+        key: 'dsh-desktop-pet',
         inject: () => controller.inject(),
     }, DesktopPetSettingsCard));
 }

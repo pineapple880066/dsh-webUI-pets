@@ -1,6 +1,6 @@
 .root {
   position: absolute;
-  right: 22px;
+  right: var(--dsh-overlay-safe-right, 22px);
   bottom: 18px;
   z-index: 1;
   width: 126px;
@@ -8,7 +8,10 @@
   cursor: grab;
   user-select: none;
   touch-action: none;
-  transition: transform var(--ds-transition-duration-fast) var(--ds-ease-out);
+  border-radius: 24px;
+  transition:
+    transform var(--ds-transition-duration-fast) var(--ds-ease-out),
+    filter var(--ds-transition-duration-fast) var(--ds-ease-out);
 }
 
 .root:hover,
@@ -19,6 +22,7 @@
 .root[data-dragging] {
   cursor: grabbing;
   transform: scale(1.03);
+  filter: drop-shadow(0 12px 20px color-mix(in srgb, var(--dsw-alias-brand-primary) 16%, transparent));
   transition: none;
 }
 
@@ -53,10 +57,12 @@
   padding: 0;
   border: 1px solid var(--dsw-alias-border-l2);
   border-radius: 999px;
-  background: var(--dsw-alias-bg-elevated);
-  color: var(--dsw-alias-text-secondary);
+  background: color-mix(in srgb, var(--dsw-alias-bg-layer-2) 72%, transparent);
+  color: var(--dsw-alias-label-secondary);
   cursor: pointer;
   opacity: 0;
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
+  backdrop-filter: blur(14px) saturate(135%);
   transition: opacity var(--ds-transition-duration-fast) var(--ds-ease-out);
 }
 
@@ -84,10 +90,10 @@
   min-width: 150px;
   padding: 9px 11px;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 12px;
-  background: var(--dsw-alias-bg-elevated);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--dsw-alias-bg-layer-2) 72%, transparent);
   box-shadow: 0 8px 26px rgb(15 23 42 / 13%);
-  color: var(--dsw-alias-text-primary);
+  color: var(--dsw-alias-label-primary);
   font-size: 12px;
   line-height: 1.35;
   opacity: 0;
@@ -96,6 +102,8 @@
   transition:
     opacity var(--ds-transition-duration-fast) var(--ds-ease-out),
     transform var(--ds-transition-duration-fast) var(--ds-ease-out);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
 }
 
 .root:hover .bubble,
@@ -112,7 +120,7 @@
   height: 10px;
   border-right: 1px solid var(--dsw-alias-border-l2);
   border-bottom: 1px solid var(--dsw-alias-border-l2);
-  background: var(--dsw-alias-bg-elevated);
+  background: var(--dsw-alias-bg-layer-2);
   content: '';
   transform: rotate(45deg);
 }

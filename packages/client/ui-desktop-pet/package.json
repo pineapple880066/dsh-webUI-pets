@@ -1,7 +1,7 @@
 {
   "name": "@dsh-external/dsh-webui-pets",
   "description": "Codex-style draggable desktop pets for the DeepSeek Harness Web UI / 类似 Codex 的 DeepSeek Harness Web UI 可拖拽桌宠",
-  "version": "0.1.0-rc.5",
+  "version": "0.1.0-rc.6",
   "publishConfig": {
     "access": "public"
   },

@@ -26,6 +26,8 @@ dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/clie
 
 包内已经声明 `dsh.client` 和 `dsh.bundle.patch`：patch 负责把插件加入 Web profile，设置卡片负责控制桌宠是否显示。
 
+兼容性：`0.1.0-rc.6` 面向 DSH `0.1.1-rc.1` 及更新版本，设置卡片使用当前 DSH 提供的 keyed `settings.plugin.item` 槽位注册。
+
 ## 素材与许可证
 
 七套透明组图根据用户提供的角色参考图生成。重新分发角色素材前，请确认相应的二创和分发授权；插件源代码采用 MIT 许可证。
