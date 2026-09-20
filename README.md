@@ -30,11 +30,11 @@ Install the package into the Web profile with the current DSH plugin flow; it is
 dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/client/ui-desktop-pet
 ```
 
-After installation, open `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`, then use `桌宠 / Desktop pets → 启用桌宠 / Enable desktop pets`. The switch is persisted by DSH settings and takes effect without rebuilding dsh. A restart of the Web profile may still be needed after the first installation so the newly installed client bundle is loaded.
+After installation, open `插件 / Plugins`, open the `桌宠 / Desktop pets` entry, and use its `启用桌宠 / Enable desktop pets` switch. The setting is persisted by DSH and takes effect through the live plugin runtime; a restart of the Web profile may still be needed after the first installation so the newly installed client bundle is loaded.
 
 The package declares `dsh.client` and `dsh.bundle.patch`; the patch adds it to the Web profile composition, while the settings card controls whether the overlay is mounted.
 
-Compatibility: `0.1.0-rc.6` targets DSH `0.1.1-rc.1` and newer. It registers the settings card through the keyed `settings.plugin.item` slot introduced by current DSH releases.
+Compatibility: `0.1.0-rc.7` targets DSH `0.1.6-alpha.2` and newer. It uses the live `plugins.item` configuration entry, the current Session status hooks, and effect-scoped Host/client registrations so DSH can enable, disable, and unload the plugin safely.
 
 ## Assets and license
 
@@ -60,11 +60,11 @@ DSH WebUI Pets 是一组面向 DeepSeek Harness Web UI 的、类似 Codex 的可
 dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/client/ui-desktop-pet
 ```
 
-安装后打开 `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`，在 `桌宠 / Desktop pets` 卡片中切换 `启用桌宠 / Enable desktop pets`。开关会写入 DSH 设置并热生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
+安装后打开 `插件 / Plugins`，进入 `桌宠 / Desktop pets` 条目，在其中切换 `启用桌宠 / Enable desktop pets`。设置会写入 DSH 并通过实时插件运行时生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
 
 包内已经声明 `dsh.client` 和 `dsh.bundle.patch`：patch 负责把插件加入 Web profile，设置卡片负责控制桌宠是否显示。
 
-兼容性：`0.1.0-rc.6` 面向 DSH `0.1.1-rc.1` 及更新版本，设置卡片使用当前 DSH 提供的 keyed `settings.plugin.item` 槽位注册。
+兼容性：`0.1.0-rc.7` 面向 DSH `0.1.6-alpha.2` 及更新版本，设置卡片使用新版 `plugins.item` 条目、当前 Session 状态 hook，并通过 effect 作用域注册资源和 UI，支持 DSH 实时启停与卸载插件。
 
 ## 桌宠图片制作规范
 

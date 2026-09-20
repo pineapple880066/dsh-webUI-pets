@@ -1,4 +1,5 @@
-import type { SettingsScope, SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client';
+import type { SnapshotStore } from '@deepseek-ai/dsh-client-store';
+import type { SettingsScope } from '@deepseek-ai/dsh-client-ui-settings/client';
 export interface DesktopPetSettings {
     enabled?: boolean;
 }
@@ -25,10 +26,11 @@ export declare class DesktopPetSettingsController {
     private draftEnabled;
     private saving;
     private failed;
+    private saveTask;
     private readonly store;
     private readonly unsubscribe;
     constructor(scope: SettingsScope<DesktopPetSettings>);
-    dispose(): void;
+    dispose(): Promise<void>;
     private snapshot;
     private publish;
     private saveSettings;

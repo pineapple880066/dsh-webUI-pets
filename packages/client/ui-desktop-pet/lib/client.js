@@ -6,9 +6,9 @@ window.__ModuleLoader__.load({
 		Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 		let react = require("react");
 		let react_jsx_runtime = require("react/jsx-runtime");
-		let _deepseek_ai_dsh_client_runtime_client = require("@deepseek-ai/dsh-client-runtime/client");
-		//#region \0dsh-css:/Users/pineapple/Documents/ChatGPT/deepseek-harness/deepseek-harness-src/packages/client/ui-desktop-pet/src/client/DesktopPet.module.css.mjs
-		const css$1 = ".Z7uDiG_root{right:var(--dsh-overlay-safe-right,22px);z-index:1;cursor:grab;user-select:none;touch-action:none;width:126px;transition:transform var(--ds-transition-duration-fast) var(--ds-ease-out), filter var(--ds-transition-duration-fast) var(--ds-ease-out);border-radius:24px;padding:8px;position:absolute;bottom:18px}.Z7uDiG_root:hover,.Z7uDiG_root:focus-within{transform:translateY(-3px)}.Z7uDiG_root[data-dragging]{cursor:grabbing;filter:drop-shadow(0 12px 20px color-mix(in srgb, var(--dsw-alias-brand-primary) 16%, transparent));transition:none;transform:scale(1.03)}.Z7uDiG_root[data-minimized]{width:48px;padding:2px}.Z7uDiG_sprite{background-image:var(--dsh-desktop-pet-sprite);filter:drop-shadow(0 8px 10px #0f172a2e);background-repeat:no-repeat;background-size:400% 300%;width:110px;height:110px}.Z7uDiG_root[data-minimized] .Z7uDiG_sprite{width:44px;height:44px}.Z7uDiG_actionButton{z-index:2;border:1px solid var(--dsw-alias-border-l2);background:color-mix(in srgb, var(--dsw-alias-bg-layer-2) 72%, transparent);width:22px;height:22px;color:var(--dsw-alias-label-secondary);cursor:pointer;opacity:0;backdrop-filter:blur(14px)saturate(135%);transition:opacity var(--ds-transition-duration-fast) var(--ds-ease-out);border-radius:999px;place-items:center;padding:0;display:grid;position:absolute;top:1px;right:0}.Z7uDiG_switcher{right:25px}.Z7uDiG_root:hover .Z7uDiG_actionButton,.Z7uDiG_root:focus-within .Z7uDiG_actionButton,.Z7uDiG_root[data-minimized] .Z7uDiG_actionButton{opacity:1}.Z7uDiG_actionButton:hover{background:var(--dsw-alias-button-floating-hover);color:var(--dsw-alias-text-primary)}.Z7uDiG_bubble{border:1px solid var(--dsw-alias-border-l2);background:color-mix(in srgb, var(--dsw-alias-bg-layer-2) 72%, transparent);min-width:150px;color:var(--dsw-alias-label-primary);opacity:0;pointer-events:none;transition:opacity var(--ds-transition-duration-fast) var(--ds-ease-out), transform var(--ds-transition-duration-fast) var(--ds-ease-out);backdrop-filter:blur(18px)saturate(135%);border-radius:16px;gap:3px;padding:9px 11px;font-size:12px;line-height:1.35;display:grid;position:absolute;bottom:calc(100% - 4px);right:2px;transform:translateY(4px);box-shadow:0 8px 26px #0f172a21}.Z7uDiG_root:hover .Z7uDiG_bubble,.Z7uDiG_root:focus-within .Z7uDiG_bubble{opacity:1;transform:translateY(0)}.Z7uDiG_bubble:after{border-right:1px solid var(--dsw-alias-border-l2);border-bottom:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);content:\"\";width:10px;height:10px;position:absolute;bottom:-6px;right:23px;transform:rotate(45deg)}.Z7uDiG_bubble span{color:var(--dsw-alias-text-tertiary)}@media (prefers-reduced-motion:reduce){.Z7uDiG_root,.Z7uDiG_actionButton,.Z7uDiG_bubble{transition:none}}";
+		let _deepseek_ai_dsh_client_store = require("@deepseek-ai/dsh-client-store");
+		//#region \0dsh-css:/private/tmp/dsh-v0.1.6-alpha.2-check/packages/client/ui-desktop-pet/src/client/DesktopPet.module.css.mjs
+		const css$1 = "._33SBkG_root{right:var(--dsh-overlay-safe-right,22px);z-index:1;cursor:grab;user-select:none;touch-action:none;width:126px;transition:transform var(--ds-transition-duration-fast) var(--ds-ease-out), filter var(--ds-transition-duration-fast) var(--ds-ease-out);border-radius:24px;padding:8px;position:absolute;bottom:18px}._33SBkG_root:hover,._33SBkG_root:focus-within{transform:translateY(-3px)}._33SBkG_root[data-dragging]{cursor:grabbing;filter:drop-shadow(0 12px 20px color-mix(in srgb, var(--dsw-alias-brand-primary) 16%, transparent));transition:none;transform:scale(1.03)}._33SBkG_root[data-minimized]{width:48px;padding:2px}._33SBkG_sprite{background-image:var(--dsh-desktop-pet-sprite);filter:drop-shadow(0 8px 10px #0f172a2e);background-repeat:no-repeat;background-size:400% 300%;width:110px;height:110px}._33SBkG_root[data-minimized] ._33SBkG_sprite{width:44px;height:44px}._33SBkG_actionButton{z-index:2;border:1px solid var(--dsw-alias-border-l2);background:color-mix(in srgb, var(--dsw-alias-bg-layer-2) 72%, transparent);width:22px;height:22px;color:var(--dsw-alias-label-secondary);cursor:pointer;opacity:0;backdrop-filter:blur(14px)saturate(135%);transition:opacity var(--ds-transition-duration-fast) var(--ds-ease-out);border-radius:999px;place-items:center;padding:0;display:grid;position:absolute;top:1px;right:0}._33SBkG_switcher{right:25px}._33SBkG_root:hover ._33SBkG_actionButton,._33SBkG_root:focus-within ._33SBkG_actionButton,._33SBkG_root[data-minimized] ._33SBkG_actionButton{opacity:1}._33SBkG_actionButton:hover{background:var(--dsw-alias-button-floating-hover);color:var(--dsw-alias-text-primary)}._33SBkG_bubble{border:1px solid var(--dsw-alias-border-l2);background:color-mix(in srgb, var(--dsw-alias-bg-layer-2) 72%, transparent);min-width:150px;color:var(--dsw-alias-label-primary);opacity:0;pointer-events:none;transition:opacity var(--ds-transition-duration-fast) var(--ds-ease-out), transform var(--ds-transition-duration-fast) var(--ds-ease-out);backdrop-filter:blur(18px)saturate(135%);border-radius:16px;gap:3px;padding:9px 11px;font-size:12px;line-height:1.35;display:grid;position:absolute;bottom:calc(100% - 4px);right:2px;transform:translateY(4px);box-shadow:0 8px 26px #0f172a21}._33SBkG_root:hover ._33SBkG_bubble,._33SBkG_root:focus-within ._33SBkG_bubble{opacity:1;transform:translateY(0)}._33SBkG_bubble:after{border-right:1px solid var(--dsw-alias-border-l2);border-bottom:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);content:\"\";width:10px;height:10px;position:absolute;bottom:-6px;right:23px;transform:rotate(45deg)}._33SBkG_bubble span{color:var(--dsw-alias-text-tertiary)}@media (prefers-reduced-motion:reduce){._33SBkG_root,._33SBkG_actionButton,._33SBkG_bubble{transition:none}}";
 		const tagId$1 = "@dsh-external/dsh-webui-pets/DesktopPet.module.css";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$1) + "]") === null) {
 			const tag = document.createElement("style");
@@ -18,11 +18,11 @@ window.__ModuleLoader__.load({
 			document.head.appendChild(tag);
 		}
 		var DesktopPet_module_css_default = {
-			"sprite": "Z7uDiG_sprite",
-			"switcher": "Z7uDiG_switcher",
-			"bubble": "Z7uDiG_bubble",
-			"root": "Z7uDiG_root",
-			"actionButton": "Z7uDiG_actionButton"
+			"actionButton": "_33SBkG_actionButton",
+			"bubble": "_33SBkG_bubble",
+			"root": "_33SBkG_root",
+			"sprite": "_33SBkG_sprite",
+			"switcher": "_33SBkG_switcher"
 		};
 		//#endregion
 		//#region src/client/DesktopPet.tsx
@@ -158,14 +158,11 @@ window.__ModuleLoader__.load({
 		* all presentation state remains local to the component and disappears with
 		* the overlay registration.
 		*/
-		function DesktopPet({ useSessions }) {
-			const mode = useSessions((state) => {
-				const current = state.current === void 0 ? void 0 : state.byId[state.current];
-				return modeFromSession(current?.running === true, current?.pendingInteraction !== void 0, current?.completed === true);
-			});
-			const sessionTitle = useSessions((state) => {
-				return (state.current === void 0 ? void 0 : state.byId[state.current])?.displayTitle;
-			});
+		function DesktopPet({ useSessions, useSessionStatus }) {
+			const currentSession = useSessions((state) => Object.values(state.byId).find((session) => (session.retainedBy.mainView ?? 0) > 0));
+			const currentStatus = useSessionStatus((statuses) => currentSession === void 0 ? void 0 : statuses.get(currentSession.id));
+			const mode = modeFromSession(currentStatus?.running, currentStatus?.pendingInteraction !== void 0, currentStatus?.completionUnread === true);
+			const sessionTitle = currentSession?.displayTitle;
 			const [frameIndex, setFrameIndex] = (0, react.useState)(0);
 			const [petId, setPetId] = (0, react.useState)(readPetId);
 			const [minimized, setMinimized] = (0, react.useState)(false);
@@ -278,13 +275,13 @@ window.__ModuleLoader__.load({
 				]
 			});
 		}
-		/** Overlay wrapper that reacts to Settings → Plugins → Plugin configuration. */
+		/** Overlay wrapper that reacts to the live Plugins page setting. */
 		function DesktopPetOverlay(props) {
 			return props.useDesktopPetSettings((snapshot) => snapshot.enabled) ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)(DesktopPet, { ...props }) : null;
 		}
 		//#endregion
-		//#region \0dsh-css:/Users/pineapple/Documents/ChatGPT/deepseek-harness/deepseek-harness-src/packages/client/ui-desktop-pet/src/client/DesktopPetSettingsCard.module.css.mjs
-		const css = "._6cK9Xq_card{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-elevated);color:var(--dsw-alias-text-primary);border-radius:12px;gap:14px;padding:18px;display:grid}._6cK9Xq_header{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}._6cK9Xq_header strong{font-size:14px;display:block}._6cK9Xq_header p{color:var(--dsw-alias-text-secondary);margin:5px 0 0;font-size:12px;line-height:1.45}._6cK9Xq_pending{color:var(--dsw-alias-text-secondary);white-space:nowrap;font-size:12px}._6cK9Xq_toggle{align-items:center;gap:9px;font-size:13px;display:flex}._6cK9Xq_toggle input{width:16px;height:16px;accent-color:var(--dsw-alias-button-primary-bg)}._6cK9Xq_actions{justify-content:flex-end;gap:8px;display:flex}._6cK9Xq_actions button{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-base);color:var(--dsw-alias-text-primary);cursor:pointer;border-radius:7px;padding:6px 10px;font-size:12px}._6cK9Xq_actions button:last-child{border-color:var(--dsw-alias-button-primary-bg);background:var(--dsw-alias-button-primary-bg);color:var(--dsw-alias-button-primary-text)}._6cK9Xq_actions button:disabled,._6cK9Xq_toggle input:disabled{cursor:not-allowed;opacity:.55}._6cK9Xq_failed{color:var(--dsw-alias-text-danger);margin:0;font-size:12px}";
+		//#region \0dsh-css:/private/tmp/dsh-v0.1.6-alpha.2-check/packages/client/ui-desktop-pet/src/client/DesktopPetSettingsCard.module.css.mjs
+		const css = ".dwVW7W_card{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-elevated);color:var(--dsw-alias-text-primary);border-radius:12px;gap:14px;padding:18px;display:grid}.dwVW7W_header{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}.dwVW7W_header strong{font-size:14px;display:block}.dwVW7W_header p{color:var(--dsw-alias-text-secondary);margin:5px 0 0;font-size:12px;line-height:1.45}.dwVW7W_pending{color:var(--dsw-alias-text-secondary);white-space:nowrap;font-size:12px}.dwVW7W_toggle{align-items:center;gap:9px;font-size:13px;display:flex}.dwVW7W_toggle input{width:16px;height:16px;accent-color:var(--dsw-alias-button-primary-bg)}.dwVW7W_actions{justify-content:flex-end;gap:8px;display:flex}.dwVW7W_actions button{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-base);color:var(--dsw-alias-text-primary);cursor:pointer;border-radius:7px;padding:6px 10px;font-size:12px}.dwVW7W_actions button:last-child{border-color:var(--dsw-alias-button-primary-bg);background:var(--dsw-alias-button-primary-bg);color:var(--dsw-alias-button-primary-text)}.dwVW7W_actions button:disabled,.dwVW7W_toggle input:disabled{cursor:not-allowed;opacity:.55}.dwVW7W_failed{color:var(--dsw-alias-text-danger);margin:0;font-size:12px}";
 		const tagId = "@dsh-external/dsh-webui-pets/DesktopPetSettingsCard.module.css";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
 			const tag = document.createElement("style");
@@ -294,21 +291,25 @@ window.__ModuleLoader__.load({
 			document.head.appendChild(tag);
 		}
 		var DesktopPetSettingsCard_module_css_default = {
-			"actions": "_6cK9Xq_actions",
-			"toggle": "_6cK9Xq_toggle",
-			"failed": "_6cK9Xq_failed",
-			"card": "_6cK9Xq_card",
-			"pending": "_6cK9Xq_pending",
-			"header": "_6cK9Xq_header"
+			"actions": "dwVW7W_actions",
+			"card": "dwVW7W_card",
+			"failed": "dwVW7W_failed",
+			"header": "dwVW7W_header",
+			"pending": "dwVW7W_pending",
+			"toggle": "dwVW7W_toggle"
 		};
 		//#endregion
 		//#region src/client/DesktopPetSettingsCard.tsx
 		/** Bilingual settings card for the master desktop-pet switch. */
 		function DesktopPetSettingsCard(props) {
 			const state = props.useDesktopPetSettings((snapshot) => snapshot);
-			if (!state.available) return null;
+			if (props.view === "summary") return "类似 Codex 的 Web UI 桌宠 / Codex-style Web UI desktop companions";
+			if (!state.available) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+				className: DesktopPetSettingsCard_module_css_default.failed,
+				children: "设置暂不可用 / Settings unavailable."
+			});
 			const disabled = !state.writable || state.saving;
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: DesktopPetSettingsCard_module_css_default.card,
 				children: [
 					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
@@ -358,17 +359,19 @@ window.__ModuleLoader__.load({
 			draftEnabled;
 			saving = false;
 			failed = false;
+			saveTask;
 			store;
 			unsubscribe;
 			constructor(scope) {
 				this.scope = scope;
-				this.store = (0, _deepseek_ai_dsh_client_runtime_client.createSnapshotStore)(this.snapshot());
+				this.store = (0, _deepseek_ai_dsh_client_store.createSnapshotStore)(this.snapshot());
 				this.unsubscribe = scope.subscribe(() => {
 					this.publish();
 				});
 			}
-			dispose() {
+			async dispose() {
 				this.unsubscribe();
+				await this.saveTask;
 			}
 			snapshot() {
 				const snapshot = this.scope.getSnapshot();
@@ -393,12 +396,16 @@ window.__ModuleLoader__.load({
 				this.saving = true;
 				this.failed = false;
 				this.publish();
-				await this.scope.set("enabled", value);
-				const accepted = this.scope.getSnapshot().value?.enabled ?? true;
-				this.saving = false;
-				if (accepted === value) this.draftEnabled = void 0;
-				else this.failed = true;
-				this.publish();
+				try {
+					await this.scope.set("enabled", value);
+					if ((this.scope.getSnapshot().value?.enabled ?? true) === value) this.draftEnabled = void 0;
+					else this.failed = true;
+				} catch {
+					this.failed = true;
+				} finally {
+					this.saving = false;
+					this.publish();
+				}
 			}
 			inject() {
 				return {
@@ -409,7 +416,8 @@ window.__ModuleLoader__.load({
 						this.publish();
 					},
 					save: () => {
-						this.saveSettings();
+						const task = this.saveSettings();
+						this.saveTask = task;
 					},
 					discard: () => {
 						this.draftEnabled = void 0;
@@ -422,17 +430,12 @@ window.__ModuleLoader__.load({
 		//#endregion
 		//#region src/client/index.ts
 		/** Browser services used by the overlay, settings mirror, and plugin card. */
-		const inject = [
-			"slots",
-			"connection",
-			"remote",
-			"settingsScope"
-		];
+		const inject = ["slots", "settingsScope"];
 		/** Register the overlay and its settings card without rebuilding the host. */
 		function apply(ctx) {
 			const controller = new DesktopPetSettingsController(ctx.settingsScope.bind({ namespace: "dsh-desktop-pet" }));
-			ctx.effect(() => () => {
-				controller.dispose();
+			ctx.effect(() => async () => {
+				await controller.dispose();
 			}, "dsh-desktop-pet: settings controller");
 			ctx.slots.inject("shell.overlay", () => ctx.slots.register({
 				name: "shell.overlay",
@@ -440,9 +443,11 @@ window.__ModuleLoader__.load({
 				order: 60,
 				inject: () => controller.inject()
 			}, DesktopPetOverlay));
-			ctx.slots.inject("settings.plugin.item", () => ctx.slots.register({
-				name: "settings.plugin.item",
-				key: "dsh-desktop-pet",
+			ctx.slots.inject("plugins.item", () => ctx.slots.register({
+				name: "plugins.item",
+				id: "dsh-desktop-pet",
+				order: 50,
+				label: "桌宠 / Desktop pets",
 				inject: () => controller.inject()
 			}, DesktopPetSettingsCard));
 		}

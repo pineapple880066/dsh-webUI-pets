@@ -1,5 +1,6 @@
-import type { SettingsScope, SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
+import type { SnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import type { SettingsScope } from '@deepseek-ai/dsh-client-ui-settings/client'
 
 export interface DesktopPetSettings {
   enabled?: boolean
@@ -29,6 +30,7 @@ export class DesktopPetSettingsController {
   private draftEnabled: boolean | undefined
   private saving = false
   private failed = false
+  private saveTask: Promise<void> | undefined
   private readonly store: SnapshotStore<DesktopPetSettingsState>
   private readonly unsubscribe: () => void
 
@@ -37,8 +39,9 @@ export class DesktopPetSettingsController {
     this.unsubscribe = scope.subscribe(() => { this.publish() })
   }
 
-  dispose(): void {
+  async dispose(): Promise<void> {
     this.unsubscribe()
+    await this.saveTask
   }
 
   private snapshot(): DesktopPetSettingsState {
@@ -66,12 +69,17 @@ export class DesktopPetSettingsController {
     this.saving = true
     this.failed = false
     this.publish()
-    await this.scope.set('enabled', value)
-    const accepted = this.scope.getSnapshot().value?.enabled ?? true
-    this.saving = false
-    if (accepted === value) this.draftEnabled = undefined
-    else this.failed = true
-    this.publish()
+    try {
+      await this.scope.set('enabled', value)
+      const accepted = this.scope.getSnapshot().value?.enabled ?? true
+      if (accepted === value) this.draftEnabled = undefined
+      else this.failed = true
+    } catch {
+      this.failed = true
+    } finally {
+      this.saving = false
+      this.publish()
+    }
   }
 
   inject(): DesktopPetSettingsFace {
@@ -82,7 +90,11 @@ export class DesktopPetSettingsController {
         this.failed = false
         this.publish()
       },
-      save: () => { void this.saveSettings() },
+      save: () => {
+        const task = this.saveSettings()
+        this.saveTask = task
+        void task
+      },
       discard: () => {
         this.draftEnabled = undefined
         this.failed = false

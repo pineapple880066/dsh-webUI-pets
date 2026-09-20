@@ -2,7 +2,8 @@
   "extends": "../../../tsconfig.base.client.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib/types"
+    "outDir": "lib/types",
+    "types": ["client-build-environment", "node"]
   },
   "include": [
     "src"
@@ -12,13 +13,10 @@
       "path": "../../../vendor/cordis"
     },
     {
-      "path": "../../api/remotes/tsconfig.client.json"
+      "path": "../../api/session-controller/tsconfig.client.json"
     },
     {
-      "path": "../connection/tsconfig.client.json"
-    },
-    {
-      "path": "../runtime"
+      "path": "../store"
     },
     {
       "path": "../ui-layout"
@@ -30,13 +28,16 @@
       "path": "../ui-settings"
     },
     {
-      "path": "../ui-settings-plugins"
+      "path": "../ui-plugin-manager"
+    },
+    {
+      "path": "../ui-renderer"
+    },
+    {
+      "path": "../ui-session"
     },
     {
       "path": "../../settings/settings"
-    },
-    {
-      "path": "../../runtime-diagnostics/invariants"
     }
   ]
 }

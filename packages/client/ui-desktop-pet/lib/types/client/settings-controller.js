@@ -1,10 +1,11 @@
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-runtime/client';
+import { createSnapshotStore } from '@deepseek-ai/dsh-client-store';
 /** Small staged form used by the plugin card and the overlay gate. */
 export class DesktopPetSettingsController {
     scope;
     draftEnabled;
     saving = false;
     failed = false;
+    saveTask;
     store;
     unsubscribe;
     constructor(scope) {
@@ -12,8 +13,9 @@ export class DesktopPetSettingsController {
         this.store = createSnapshotStore(this.snapshot());
         this.unsubscribe = scope.subscribe(() => { this.publish(); });
     }
-    dispose() {
+    async dispose() {
         this.unsubscribe();
+        await this.saveTask;
     }
     snapshot() {
         const snapshot = this.scope.getSnapshot();
@@ -39,14 +41,21 @@ export class DesktopPetSettingsController {
         this.saving = true;
         this.failed = false;
         this.publish();
-        await this.scope.set('enabled', value);
-        const accepted = this.scope.getSnapshot().value?.enabled ?? true;
-        this.saving = false;
-        if (accepted === value)
-            this.draftEnabled = undefined;
-        else
+        try {
+            await this.scope.set('enabled', value);
+            const accepted = this.scope.getSnapshot().value?.enabled ?? true;
+            if (accepted === value)
+                this.draftEnabled = undefined;
+            else
+                this.failed = true;
+        }
+        catch {
             this.failed = true;
-        this.publish();
+        }
+        finally {
+            this.saving = false;
+            this.publish();
+        }
     }
     inject() {
         return {
@@ -56,7 +65,11 @@ export class DesktopPetSettingsController {
                 this.failed = false;
                 this.publish();
             },
-            save: () => { void this.saveSettings(); },
+            save: () => {
+                const task = this.saveSettings();
+                this.saveTask = task;
+                void task;
+            },
             discard: () => {
                 this.draftEnabled = undefined;
                 this.failed = false;

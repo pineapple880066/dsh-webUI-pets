@@ -7,8 +7,8 @@ type DesktopPetOverlayProps = PropsRuntime<'shell.overlay'> & InjectFace<Desktop
  * all presentation state remains local to the component and disappears with
  * the overlay registration.
  */
-export declare function DesktopPet({ useSessions }: DesktopPetProps): import("react").JSX.Element;
-/** Overlay wrapper that reacts to Settings → Plugins → Plugin configuration. */
+export declare function DesktopPet({ useSessions, useSessionStatus }: DesktopPetProps): import("react").JSX.Element;
+/** Overlay wrapper that reacts to the live Plugins page setting. */
 export declare function DesktopPetOverlay(props: DesktopPetOverlayProps): import("react").JSX.Element | null;
 export {};
 //# sourceMappingURL=DesktopPet.d.ts.map
