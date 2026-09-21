@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react'
 import type { InjectFace, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
+import type {} from '@deepseek-ai/dsh-client-ui-session/client'
 import css from './DesktopPet.module.css'
 import type { DesktopPetSettingsFace } from './settings-controller.ts'
 
@@ -149,7 +150,7 @@ function writePosition(position: Position): void {
   }
 }
 
-function modeFromSession(running: boolean, pending: boolean, completed: boolean): PetMode {
+function modeFromSession(running: boolean | undefined, pending: boolean, completed: boolean): PetMode {
   if (pending) return 'attention'
   if (running) return 'working'
   if (completed) return 'done'
@@ -167,19 +168,17 @@ function framePosition(frame: number): string {
  * all presentation state remains local to the component and disappears with
  * the overlay registration.
  */
-export function DesktopPet({ useSessions }: DesktopPetProps) {
-  const mode = useSessions((state) => {
-    const current = state.current === undefined ? undefined : state.byId[state.current]
-    return modeFromSession(
-      current?.running === true,
-      current?.pendingInteraction !== undefined,
-      current?.completed === true,
-    )
-  })
-  const sessionTitle = useSessions((state) => {
-    const current = state.current === undefined ? undefined : state.byId[state.current]
-    return current?.displayTitle
-  })
+export function DesktopPet({ useSessions, useSessionStatus }: DesktopPetProps) {
+  const currentSession = useSessions((state) => Object.values(state.byId)
+    .find(session => (session.retainedBy.mainView ?? 0) > 0))
+  const currentStatus = useSessionStatus((statuses) =>
+    currentSession === undefined ? undefined : statuses.get(currentSession.id))
+  const mode = modeFromSession(
+    currentStatus?.running,
+    currentStatus?.pendingInteraction !== undefined,
+    currentStatus?.completionUnread === true,
+  )
+  const sessionTitle = currentSession?.displayTitle
   const [frameIndex, setFrameIndex] = useState(0)
   const [petId, setPetId] = useState<PetId>(readPetId)
   const [minimized, setMinimized] = useState(false)
@@ -298,7 +297,7 @@ export function DesktopPet({ useSessions }: DesktopPetProps) {
   )
 }
 
-/** Overlay wrapper that reacts to Settings → Plugins → Plugin configuration. */
+/** Overlay wrapper that reacts to the live Plugins page setting. */
 export function DesktopPetOverlay(props: DesktopPetOverlayProps) {
   const enabled = props.useDesktopPetSettings(snapshot => snapshot.enabled)
   return enabled ? <DesktopPet {...props} /> : null

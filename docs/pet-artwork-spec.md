@@ -64,7 +64,7 @@ Keep the character scale, feet baseline, and visual center consistent across all
 2. Add the file to packages/client/ui-desktop-pet/assets/.
 3. Add the pet ID to the PetId type and add a matching entry to the PETS list in src/client/DesktopPet.tsx.
 4. Add bilingual status labels for idle, working, attention, and done.
-5. Run the client tests and confirm the new asset is served from the client-module asset route.
+5. Run the client and Host tests and confirm the new asset is served from the package-owned Host asset route.
 
 The runtime URL is:
 
@@ -146,7 +146,7 @@ The runtime URL is:
 2. 将图片放入 packages/client/ui-desktop-pet/assets/。
 3. 在 src/client/DesktopPet.tsx 的 PetId 类型中加入桌宠 ID，并在 PETS 列表中加入对应条目。
 4. 为待机、工作、等待确认和完成状态添加中英双语提示文字。
-5. 运行客户端测试，并确认新图片可以通过客户端插件素材路由访问。
+5. 运行客户端和 Host 测试，并确认新图片可以通过包内 Host 素材路由访问。
 
 运行时素材地址为：
 

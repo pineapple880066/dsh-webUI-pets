@@ -12,8 +12,8 @@ A small Codex-style companion for the DeepSeek Harness Web UI. The plugin regist
 - The ↻ button cycles pets and persists the selection in browser local storage.
 - Drag anywhere on the pet to reposition it; the position is persisted in localStorage.
 - The − button minimizes the pet into a small corner companion.
-- The PNG asset is served by the client-module route at /plugins/<package>/assets/.
-- `Settings → Plugins → Plugin configuration` contains an `Enable desktop pets` switch; changing it persists through the DSH settings service and hot-updates the overlay.
+- The PNG asset is served by the package-owned Host route at /plugins/<package>/assets/ and only the seven allowlisted sprite sheets are exposed.
+- The `Plugins → Desktop pets` entry contains an `Enable desktop pets` switch; changing it persists through the DSH settings service and hot-updates the overlay.
 
 ## Pet artwork specification
 
@@ -23,7 +23,9 @@ See the complete bilingual guide at [docs/pet-artwork-spec.md](../../../docs/pet
 
 The seven character sprites were generated from user-provided reference images. Confirm derivative-work and redistribution rights before publishing them publicly.
 
-Install it into the Web profile with `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet`. The package declares its own `dsh.bundle.patch` and `dsh.client` entry. Then use `Settings → Plugins → Plugin configuration` to enable or disable the pets. No source copy or full dsh rebuild is required.
+No invariant companion is published because this browser companion has no additional invariant checks.
+
+Install it into the Web profile with `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet`. The package declares its own `dsh.bundle.patch` and `dsh.client` entry. Then use `Plugins → Desktop pets` to enable or disable the pets. No source copy or full dsh rebuild is required.
 
 ## Model Experience
 
@@ -37,7 +39,7 @@ None; this package neither assembles nor sends a provider request.
 
 - **Web-surface companion only** — the current implementation floats inside the dsh Web viewport; a native always-on-top window would require a separate desktop host integration.
 - **Coarse activity states** — the pet reads the session list's running/pending/completed summary and does not inspect individual tool names or token events.
-- **One asset route** — package assets are served only through the client-module route and are not exposed as a general static-file service.
+- **One asset route** — package assets are served only through the package-owned Host route, with an allowlist for the bundled PNG sheets; they are not exposed as a general static-file service.
 
 ---
 
@@ -53,7 +55,7 @@ None; this package neither assembles nor sends a provider request.
 - 点击 ↻ 可以更换桌宠，选择会保存到浏览器本地存储。
 - 拖动桌宠即可移动位置，并保存到 localStorage。
 - − 按钮可以把桌宠缩小成角落里的小伙伴。
-- PNG 素材通过 /plugins/<package>/assets/ 客户端插件路由提供。
+- PNG 素材通过 /plugins/<package>/assets/ 包内 Host 路由提供，并且只开放七张白名单组图。
 
 ## 桌宠图片制作规范
 
@@ -63,7 +65,7 @@ None; this package neither assembles nor sends a provider request.
 
 素材由用户提供的角色参考图生成，发布到公共仓库前请确认相应的二创和分发授权。
 
-使用 `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet` 安装即可。包内已经声明自己的 `dsh.bundle.patch` 和 `dsh.client` 入口；然后在 `设置 → 插件 → 插件配置` 中启用或关闭桌宠。不需要复制源码，也不需要重新构建整个 dsh。
+使用 `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet` 安装即可。包内已经声明自己的 `dsh.bundle.patch` 和 `dsh.client` 入口；然后在 `插件 → 桌宠 / Desktop pets` 条目中启用或关闭桌宠。不需要复制源码，也不需要重新构建整个 dsh。
 
 ## 模型体验
 
@@ -77,4 +79,4 @@ None; this package neither assembles nor sends a provider request.
 
 - **仅支持 Web 视图**——当前实现悬浮在 dsh Web 页面内；原生置顶窗口需要额外的桌面端宿主集成。
 - **活动状态较粗**——桌宠读取会话列表的运行／等待确认／完成摘要，不解析具体工具名或 token 事件。
-- **单一素材路由**——包内素材只通过客户端模块路由提供，不构成通用静态文件服务。
+- **单一素材路由**——包内素材只通过包内 Host 路由提供，并限制为白名单 PNG，不构成通用静态文件服务。

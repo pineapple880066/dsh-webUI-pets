@@ -12,8 +12,8 @@
 - 点击 ↻ 可以更换桌宠，选择会保存到浏览器本地存储。
 - 拖动桌宠即可移动位置，并保存到 localStorage。
 - − 按钮可以把桌宠缩小成角落里的小伙伴。
-- PNG 素材通过 /plugins/<package>/assets/ 客户端插件路由提供。
-- `设置 → 插件 → 插件配置` 中有 `启用桌宠` 开关；修改会通过 DSH 设置服务持久化，并热更新桌宠悬浮层。
+- PNG 素材通过 /plugins/<package>/assets/ 包内 Host 路由提供，并且只开放七张白名单组图。
+- `插件 → 桌宠 / Desktop pets` 条目中有 `启用桌宠` 开关；修改会通过 DSH 设置服务持久化，并热更新桌宠悬浮层。
 
 ## 桌宠图片制作规范
 
@@ -23,7 +23,7 @@
 
 素材由用户提供的角色参考图生成，发布到公共仓库前请确认相应的二创和分发授权。
 
-使用 `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet` 安装。包内已经声明自己的 `dsh.bundle.patch` 和 `dsh.client` 入口；然后在 `设置 → 插件 → 插件配置` 中启用或关闭桌宠。不需要复制源码，也不需要重新构建整个 dsh。
+使用 `dsh plugin --profile web add link:/absolute/path/to/packages/client/ui-desktop-pet` 安装。包内已经声明自己的 `dsh.bundle.patch` 和 `dsh.client` 入口；然后在 `插件 → 桌宠 / Desktop pets` 条目中启用或关闭桌宠。不需要复制源码，也不需要重新构建整个 dsh。
 
 ## 模型体验
 
@@ -37,4 +37,4 @@
 
 - **仅支持 Web 视图**——当前实现悬浮在 dsh Web 页面内；原生置顶窗口需要额外的桌面端宿主集成。
 - **活动状态较粗**——桌宠读取会话列表的运行／等待确认／完成摘要，不解析具体工具名或 token 事件。
-- **单一素材路由**——包内素材只通过客户端模块路由提供，不构成通用静态文件服务。
+- **单一素材路由**——包内素材只通过包内 Host 路由提供，并限制为白名单 PNG，不构成通用静态文件服务。

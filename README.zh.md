@@ -22,11 +22,11 @@
 dsh plugin --profile web add link:/absolute/path/to/dsh-webUI-pets/packages/client/ui-desktop-pet
 ```
 
-安装后打开 `设置 / Settings → 插件 / Plugins → 插件配置 / Plugin configuration`，在 `桌宠 / Desktop pets` 卡片中切换 `启用桌宠 / Enable desktop pets`。开关会写入 DSH 设置并热生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
+安装后打开 `插件 / Plugins`，进入 `桌宠 / Desktop pets` 条目，在其中切换 `启用桌宠 / Enable desktop pets`。设置会写入 DSH 并通过实时插件运行时生效，不需要重新构建 dsh；第一次安装后可能需要重启一次 Web profile，让新客户端 bundle 被加载。
 
 包内已经声明 `dsh.client` 和 `dsh.bundle.patch`：patch 负责把插件加入 Web profile，设置卡片负责控制桌宠是否显示。
 
-兼容性：`0.1.0-rc.6` 面向 DSH `0.1.1-rc.1` 及更新版本，设置卡片使用当前 DSH 提供的 keyed `settings.plugin.item` 槽位注册。
+兼容性：`0.1.0-rc.7` 面向 DSH `0.1.6-alpha.2` 及更新版本，设置卡片使用新版 `plugins.item` 条目、当前 Session 状态 hook，并通过 effect 作用域注册资源和 UI，支持 DSH 实时启停与卸载插件。
 
 ## 素材与许可证
 

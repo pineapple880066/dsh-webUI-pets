@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import type { SessionListState } from '@deepseek-ai/dsh-client-runtime/client'
+import type { SessionListState } from '@deepseek-ai/dsh-api-session-controller/client'
+import type { SessionStatusSnapshot } from '@deepseek-ai/dsh-client-ui-session/client'
 import { DesktopPet } from '../src/client/DesktopPet.tsx'
 
 type DesktopPetProps = Parameters<typeof DesktopPet>[0]
@@ -9,15 +10,14 @@ type DesktopPetProps = Parameters<typeof DesktopPet>[0]
 const state = {
   ids: [],
   byId: {},
-  current: undefined,
   phase: 'ready',
   subagentsByParent: {},
   jobsBySession: {},
-  currentAddress: undefined,
 } as SessionListState
 
 const useSessions = ((selector: (value: SessionListState) => unknown) => selector(state)) as DesktopPetProps['useSessions']
-const useWorkspaces = (() => undefined) as DesktopPetProps['useWorkspaces']
+const statuses: SessionStatusSnapshot = new Map()
+const useSessionStatus = ((selector: (value: SessionStatusSnapshot) => unknown) => selector(statuses)) as DesktopPetProps['useSessionStatus']
 
 describe('DesktopPet', () => {
   afterEach(() => {
@@ -29,7 +29,7 @@ describe('DesktopPet', () => {
   })
 
   it('renders the idle pose and can be minimized', () => {
-    render(<DesktopPet useSessions={useSessions} useWorkspaces={useWorkspaces} />)
+    render(<DesktopPet useSessions={useSessions} useSessionStatus={useSessionStatus} />)
 
     expect(screen.getByRole('img', { name: 'Doki 随时待命' })).toBeTruthy()
     const toggle = screen.getByRole('button', { name: '缩小桌宠' })
@@ -38,7 +38,7 @@ describe('DesktopPet', () => {
   })
 
   it('cycles through all seven bundled pets', () => {
-    render(<DesktopPet useSessions={useSessions} useWorkspaces={useWorkspaces} />)
+    render(<DesktopPet useSessions={useSessions} useSessionStatus={useSessionStatus} />)
 
     const switcher = screen.getByRole('button', { name: '更换桌宠' })
     fireEvent.click(switcher)

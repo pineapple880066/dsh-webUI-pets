@@ -145,15 +145,12 @@ function framePosition(frame) {
  * all presentation state remains local to the component and disappears with
  * the overlay registration.
  */
-export function DesktopPet({ useSessions }) {
-    const mode = useSessions((state) => {
-        const current = state.current === undefined ? undefined : state.byId[state.current];
-        return modeFromSession(current?.running === true, current?.pendingInteraction !== undefined, current?.completed === true);
-    });
-    const sessionTitle = useSessions((state) => {
-        const current = state.current === undefined ? undefined : state.byId[state.current];
-        return current?.displayTitle;
-    });
+export function DesktopPet({ useSessions, useSessionStatus }) {
+    const currentSession = useSessions((state) => Object.values(state.byId)
+        .find(session => (session.retainedBy.mainView ?? 0) > 0));
+    const currentStatus = useSessionStatus((statuses) => currentSession === undefined ? undefined : statuses.get(currentSession.id));
+    const mode = modeFromSession(currentStatus?.running, currentStatus?.pendingInteraction !== undefined, currentStatus?.completionUnread === true);
+    const sessionTitle = currentSession?.displayTitle;
     const [frameIndex, setFrameIndex] = useState(0);
     const [petId, setPetId] = useState(readPetId);
     const [minimized, setMinimized] = useState(false);
@@ -226,7 +223,7 @@ export function DesktopPet({ useSessions }) {
         : { left: position.left, top: position.top, right: 'auto', bottom: 'auto' };
     return (_jsxs("div", { className: css.root, "data-dragging": dragging || undefined, "data-minimized": minimized || undefined, "data-pet-id": pet.id, style: style, "aria-label": `${status}${sessionTitle === undefined ? '' : `：${sessionTitle}`}`, onPointerDown: onPointerDown, onPointerMove: onPointerMove, onPointerUp: onPointerUp, children: [_jsx("button", { type: "button", className: `${css.actionButton} ${css.switcher}`, "aria-label": "\u66F4\u6362\u684C\u5BA0", onClick: onNextPet, children: "\u21BB" }), _jsx("button", { type: "button", className: `${css.actionButton} ${css.minimize}`, "aria-label": minimized ? '展开桌宠' : '缩小桌宠', onClick: () => { setMinimized(value => !value); }, children: minimized ? '+' : '−' }), _jsx("div", { className: css.sprite, role: "img", "aria-label": status, style: spriteStyle }), !minimized && (_jsxs("div", { className: css.bubble, "aria-live": "polite", children: [_jsx("strong", { children: status }), _jsx("span", { children: "\u62D6\u6211\u5230\u559C\u6B22\u7684\u4F4D\u7F6E" })] }))] }));
 }
-/** Overlay wrapper that reacts to Settings → Plugins → Plugin configuration. */
+/** Overlay wrapper that reacts to the live Plugins page setting. */
 export function DesktopPetOverlay(props) {
     const enabled = props.useDesktopPetSettings(snapshot => snapshot.enabled);
     return enabled ? _jsx(DesktopPet, { ...props }) : null;
